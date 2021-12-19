@@ -25,6 +25,7 @@ const quizData = [
     }
 ]
 
+//quiz card
 const questionText = document.getElementById('question-text');
 const  [answerA, answerB, answerC, answerD]  = document.querySelectorAll('.answer');
 const btn = document.getElementById('btn');
@@ -32,10 +33,41 @@ const btn = document.getElementById('btn');
 let currentQuiz = 0;
 let selectedRadioBtn = null;
 
+const radioBtns = document.getElementsByName('answer');
+
+
+// Scoreboard
+//score
+let startingScore = 0;
+const score = document.getElementById('score')
+
+//timer
+// let startingSeconds = 2;
+// const timer = document.getElementById('time');
+
+// let timerControl = setInterval(updateTimer, 1000);
+
+// function updateTimer(){
+    
+
+//     startingSeconds = startingSeconds < 10 ? `0${startingSeconds}` : startingSeconds;
+//     timer.innerHTML = `${startingSeconds}`
+//     startingSeconds--;
+
+//     if(startingSeconds < 0){
+//         startingSeconds = 00;
+//         clearInterval(timerControl)
+//         console.log(startingSeconds);
+//     }
+// }
+
+
+
 loadQuiz()
 
 
 function loadQuiz(){
+    deselectRadioButton()
     const currentQuizData = quizData[currentQuiz];
     
     questionText.innerText = currentQuizData.question
@@ -47,26 +79,40 @@ function loadQuiz(){
 }
 
 function radioChoiceDetection(){
-    const radioBtns = document.getElementsByName('answer');
-
 
     radioBtns.forEach( radioBtn => {
         if(radioBtn.checked){
             selectedRadioBtn = radioBtn.id;
         }
-    })
 
+        console.log(selectedRadioBtn);
+    })
+}
+
+function deselectRadioButton(){
+    radioBtns.forEach( radioBtn => {
+        radioBtn.checked = false;
+    })
 }
 
 btn.addEventListener('click', () => {
-    currentQuiz++;
+
     radioChoiceDetection();
 
+    if(selectedRadioBtn === quizData[currentQuiz].correct){
+        startingScore++;
+        score.innerHTML = startingScore;
+        console.log(score);
+        console.log(quizData[currentQuiz]);
+    }
+    currentQuiz++;
+
     if(currentQuiz < quizData.length){
+        //TODO:  fix the quiz reset, not working
         loadQuiz()
     }
     else{
-        alert('No more questions..')
+        console.log('No more questions..')
     }
 
 })
