@@ -42,7 +42,7 @@ let startingScore = 0;
 const score = document.getElementById('score')
 
 //timer
-let startingSeconds = 10;
+let startingSeconds = 3;
 const timer = document.getElementById('time');
 
 let timerControl = setInterval(updateTimer, 1000);
@@ -56,7 +56,8 @@ function updateTimer(){
 
     if(startingSeconds < 0){
         startingSeconds = 00;
-        clearInterval(timerControl)
+        clearInterval(timerControl);
+        alert('time\'s up')
         console.log(startingSeconds);
     }
 }
@@ -112,7 +113,8 @@ btn.addEventListener('click', () => {
         loadQuiz()
     }
     else{
-        console.log('No more questions..')
+        // btn.innerHTML = `Reset Quiz`
+        alert('No more questions..')
     }
 
 })
