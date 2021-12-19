@@ -42,24 +42,24 @@ let startingScore = 0;
 const score = document.getElementById('score')
 
 //timer
-// let startingSeconds = 2;
-// const timer = document.getElementById('time');
+let startingSeconds = 10;
+const timer = document.getElementById('time');
 
-// let timerControl = setInterval(updateTimer, 1000);
+let timerControl = setInterval(updateTimer, 1000);
 
-// function updateTimer(){
+function updateTimer(){
     
 
-//     startingSeconds = startingSeconds < 10 ? `0${startingSeconds}` : startingSeconds;
-//     timer.innerHTML = `${startingSeconds}`
-//     startingSeconds--;
+    startingSeconds = startingSeconds < 10 ? `0${startingSeconds}` : startingSeconds;
+    timer.innerHTML = `${startingSeconds}`
+    startingSeconds--;
 
-//     if(startingSeconds < 0){
-//         startingSeconds = 00;
-//         clearInterval(timerControl)
-//         console.log(startingSeconds);
-//     }
-// }
+    if(startingSeconds < 0){
+        startingSeconds = 00;
+        clearInterval(timerControl)
+        console.log(startingSeconds);
+    }
+}
 
 
 
