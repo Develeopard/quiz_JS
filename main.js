@@ -25,10 +25,15 @@ const quizData = [
     }
 ]
 
+//Containers
+const container = document.getElementById('container');
+const startContainer = document.getElementById('start-container');
+
 //quiz card
 const questionText = document.getElementById('question-text');
 const  [answerA, answerB, answerC, answerD]  = document.querySelectorAll('.answer');
 const btn = document.getElementById('btn');
+const startBtn = document.getElementById('start-btn');
 
 let currentQuiz = 0;
 let selectedRadioBtn = null;
@@ -48,12 +53,10 @@ const timer = document.getElementById('time');
 let timerControl = setInterval(updateTimer, 1000);
 
 function updateTimer(){
-    
-
     startingSeconds = startingSeconds < 10 ? `0${startingSeconds}` : startingSeconds;
     timer.innerHTML = `${startingSeconds}`
     startingSeconds--;
-
+    
     if(startingSeconds < 0){
         startingSeconds = 00;
         clearInterval(timerControl);
@@ -64,20 +67,26 @@ function updateTimer(){
 
 
 
-loadQuiz()
+// loadQuiz()
 
 
 function loadQuiz(){
+    
+    startContainer.classList.add('hide');
+    container.classList.remove('hide');
+    updateTimer()
     deselectRadioButton()
     const currentQuizData = quizData[currentQuiz];
     
     questionText.innerText = currentQuizData.question
-
+    
     answerA.innerText = currentQuizData.a
     answerB.innerText = currentQuizData.b
     answerC.innerText = currentQuizData.c
     answerD.innerText = currentQuizData.d
 }
+
+startBtn.addEventListener('click', loadQuiz);
 
 function radioChoiceDetection(){
 

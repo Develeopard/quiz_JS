@@ -19,6 +19,7 @@ body{
     place-items: center;
 }
 
+
 /* Scoreboard */
 .scoreboard{
     background-color: rgb(12, 12, 12);
@@ -44,9 +45,9 @@ body{
     border-radius: 12px;
     color: rgb(255, 196, 0);
     text-shadow: 0 0 3px rgb(255, 196, 0),
-                 0 0 5px rgb(255, 196, 0),
-                 0 0 6px rgb(255, 196, 0),
-                 0 0 8px rgb(255, 196, 0);
+    0 0 5px rgb(255, 196, 0),
+    0 0 6px rgb(255, 196, 0),
+    0 0 8px rgb(255, 196, 0);
 }
 
 .time::before{
@@ -72,10 +73,10 @@ body{
     border-radius: 12px;
     color: rgb(255, 196, 0);
     text-shadow: 0 0 3px rgb(255, 196, 0),
-                 0 0 5px rgb(255, 196, 0),
-                 0 0 6px rgb(255, 196, 0),
-                 0 0 8px rgb(255, 196, 0);
-                 /* 0 0 10px rgb(255, 196, 0); */
+    0 0 5px rgb(255, 196, 0),
+    0 0 6px rgb(255, 196, 0),
+    0 0 8px rgb(255, 196, 0);
+    /* 0 0 10px rgb(255, 196, 0); */
 }
 
 .score::before{
@@ -167,9 +168,9 @@ input[type="radio"] {
     border-radius: 50%;
     transform: translateY(0.29em);
     position: relative;
-  }
+}
 
-  input[type="radio"]::before {
+input[type="radio"]::before {
     content: "";
     display: block;
     position: absolute;
@@ -186,15 +187,15 @@ input[type="radio"] {
     background-size: cover;
     /* transform: translateY(-99em);
     transform: translateX(-0.0999em); */
-
+    
     transform: scale(0);
     transition: 120ms transform ease-in-out;
     box-shadow: inset 1em 1em var(--form-control-color); 
-  }
+}
 
-  input[type="radio"]:checked::before {
+input[type="radio"]:checked::before {
     transform: scale(1);
-  }
+}
 
 .btn{
     background-color: darkslateblue;
@@ -211,4 +212,42 @@ input[type="radio"] {
 
 .btn:hover{
     background-color: rgb(90, 80, 158);
+}
+
+/* Start Container */
+.start-container{
+    max-width: 500px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 20px 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.26);
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.start-container p{
+    margin-top: 20px;
+}
+
+.start-btn{
+    background-color: darkslateblue;
+    border: none;
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 1rem;
+    margin-top: 100px;
+    color: floralwhite;
+    cursor: pointer;
+    transition: background .2s;
+    text-transform: uppercase;
+}
+
+/* Hide Class */
+.hide{
+    display: none;
 }
